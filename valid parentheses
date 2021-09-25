@@ -1,4 +1,4 @@
-def isParenthesis(c1,c2):
+def isParentheses(c1,c2):
     if c1 == '(' and c2 == ')':
         return True
     if c1 == '[' and c2 == ']':
@@ -7,7 +7,7 @@ def isParenthesis(c1,c2):
         return True
     
     
-def validParenthesis(s): 
+def validParentheses(s): 
     if isinstance(s,str):
         count = 0
         for c in s:
@@ -16,13 +16,13 @@ def validParenthesis(s):
         if (count == len(s)) and (len(s) % 2 == 0):
             validCount = 0
             for i in range (0,len(s),2):
-                if isParenthesis(s[i],s[i+1]): 
+                if isParentheses(s[i],s[i+1]): 
                     validCount += 1
             if validCount == len(s) // 2:
                 return True
             validCount = 0
             for i in range (len(s)//2):
-                if isParenthesis(s[i],s[len(s)-1-i]):
+                if isParentheses(s[i],s[len(s)-1-i]):
                     validCount += 1
             if validCount == len(s) // 2:
                 return True
