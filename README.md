@@ -1,1 +1,33 @@
 # coding-challenge-1
+def isParentheses(c1,c2):
+    if c1 == '(' and c2 == ')':
+        return True
+    if c1 == '[' and c2 == ']':
+        return True
+    if c1 == '{' and c2 == '}':
+        return True
+    
+    
+def validParentheses(s): 
+    if isinstance(s,str):
+        count = 0
+        for c in s:
+            if c in ['(',')','[',']','{','}']:
+                count += 1
+        if (count == len(s)) and (len(s) % 2 == 0):
+            validCount = 0
+            for i in range (0,len(s),2):
+                if isParentheses(s[i],s[i+1]): 
+                    validCount += 1
+            if validCount == len(s) // 2:
+                return True
+            validCount = 0
+            for i in range (len(s)//2):
+                if isParentheses(s[i],s[len(s)-1-i]):
+                    validCount += 1
+            if validCount == len(s) // 2:
+                return True
+            else:
+                return False
+        else:
+            return False 
